@@ -1,8 +1,10 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using eSalud.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eSalud.Controllers;
+[Authorize]
 
 public class HomeController : Controller
 {
