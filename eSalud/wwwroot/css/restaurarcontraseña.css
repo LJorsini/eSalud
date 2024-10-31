@@ -1,0 +1,16 @@
+.img-reset-password {
+    background-image: url('../Img/logout.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.form-reset {
+    background-color: rgba(88, 104, 236, 0.85); 
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); 
+}
+
+.textos-validacion {
+    color: red;
+}
