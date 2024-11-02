@@ -1,0 +1,29 @@
+.sidebar {
+    height: 100vh;
+    background-color: #343a40;
+    color: white;
+    padding-top: 20px;
+  }
+
+  .sidebar .nav-link {
+    color: white;
+  }
+
+  .sidebar .nav-link:hover {
+    background-color: #495057;
+  }
+
+  /* Ocultar el sidebar y mostrar el botón hamburguesa en pantallas pequeñas */
+  @media (max-width: 737px) {
+    .sidebar {
+      display: none;
+    }
+    .btn-toggle {
+      display: block !important;
+    }
+  }
+
+  /* Ocultar el botón hamburguesa por defecto */
+  .btn-toggle {
+    display: none;
+  }
