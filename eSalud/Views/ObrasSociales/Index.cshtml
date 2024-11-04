@@ -1,0 +1,101 @@
+@{
+  ViewData["Title"] = "Obras Sociales";
+}
+
+<h1>Obras Sociales</h1>
+
+<div class="card">
+
+  <div class="card-header row">
+    <div class="col-6 d-flex align-items-center">
+      <input type="search" class="form-control rounded" placeholder="Estudios" aria-label="Search"
+        aria-describedby="search-addon" />
+      <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"
+        data-bs-toggle="modal" data-bs-target="#modalObrasSociales"><i class="material-icons">add</i></button>
+      <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"><i
+          class="material-icons">print</i></button>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">OBRA SOCIAL</th>
+          <th scope="col">PLAN</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>SANCOR</th>
+          <td>PLAN 1000</td>
+          <th></th>
+        </tr>
+        <tr>
+          <th>SWISH MEDICAL</th>
+          <td>PLAN JOVEN</td>
+          <th></th>
+        </tr>
+        <tr>
+          <th>OSPIL</th>
+          <td>PLAN BASICO</td>
+          <th></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalObrasSociales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVA ONBRA SOCIAL</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+
+            <div class="mb-3 col-4">
+              <label for="obraSocial" class="form-label">OBRA SOCIAL</label>
+              <input type="text" class="form-control" id="obraSocial" placeholder="OBRA SOCIAL" oninput="textoMayuscula(this)">
+              <span id="errorMensajeObraSocial" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
+                *Este dato es obligatorio
+              </span>
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="plan" class="form-label">PLAN</label>
+              <input type="text" class="form-control" id="plan" placeholder="PLAN" oninput="textoMayuscula(this)">
+              <span id="errorMensajePlan" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
+                *Este dato es obligatorio
+              </span>
+            </div>
+
+
+
+            
+
+            
+          </div>
+
+          
+
+            
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="ValidarInputs()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts {
+  <script src="~/js/obrasSociales-1.0.0.js"></script>
+}

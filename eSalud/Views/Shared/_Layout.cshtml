@@ -32,7 +32,7 @@
                         <i class="lni lni-grid-alt"></i>
                     </button>
                     <div class="sidebar-logo">
-                        <a href="#">E-Salud</a>
+                        <a href="@Url.Action("Index", "Home")" class="sidebar-link">E-Salud</a>
                     </div>
                 </div>
                 <ul class="sidebar-nav">
@@ -43,22 +43,30 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="" @Url.Action("Index", "Medicos") class="sidebar-link">
+                        <a href="@Url.Action("Index", "Profesionales")" class="sidebar-link">
                             <i class="lni lni-agenda"></i>
                             <span>Medicos</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="@Url.Action("Index", "Estudios")" class="sidebar-link" class="sidebar-link">
                             <i class="lni lni-popup"></i>
                             <span>Estudios</span>
                         </a>
                     </li>
+
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="@Url.Action("Index", "ObrasSociales")" class="sidebar-link" class="sidebar-link">
+                            <i class="lni lni-popup"></i>
+                            <span>Obras Sociales</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="@Url.Action("Index", "Localidades")" class="sidebar-link" class="sidebar-link">
                             <i class="lni lni-cog"></i>
-                            <span>Provincias</span>
+                            <span>Localidades</span>
                         </a>
                     </li>
                 </ul>

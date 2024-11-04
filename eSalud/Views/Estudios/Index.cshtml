@@ -1,0 +1,145 @@
+@{
+  ViewData["Title"] = "Estudios";
+}
+
+@{
+  ViewData["Title"] = "Medicos";
+}
+
+<h1>Estudios</h1>
+
+<div class="card">
+
+  <div class="card-header row">
+    <div class="col-6 d-flex align-items-center">
+      <input type="search" class="form-control rounded" placeholder="Estudios" aria-label="Search"
+        aria-describedby="search-addon" />
+      <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"
+        data-bs-toggle="modal" data-bs-target="#modalEstudios"><i class="material-icons">add</i></button>
+      <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"><i
+          class="material-icons">print</i></button>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">PCIENTE</th>
+          <th scope="col">PROFESIONAL</th>
+          <th scope="col">OBRA SOCIAL</th>
+          <th scope="col">ESTUDIO</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>JUAN PEREZ</th>
+          <td>123456</td>
+          <td>C205</td>
+          <td><button type="button" class="btn btn-success">VER</button></td>
+          
+        </tr>
+        <tr>
+          <th>CHIQUI TAPIA</th>
+          <td>11458789</td>
+          <td>10254</td>
+          <td><button type="button" class="btn btn-danger">VER</button></td>
+          
+        </tr>
+        <tr>
+          <th>CINDY GORI</th>
+          <td>37225488</td>
+          <td>1520</td>
+          <td><button type="button" class="btn btn-success">VER</button></td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEstudios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVO PROFESIONAL</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+
+            <div class="mb-3 col-4">
+              <label for="paciente" class="form-label">PACIENTE</label>
+              <select id = "localidad" class="form-select" aria-label="Default select example">
+                <option selected>[SELECCIONAR]</option>
+                <option value="1">JUAN PEREZ</option>
+                <option value="2">CHIQUI TAPIA</option>
+                <option value="3">CINDY GORY</option>
+              </select>
+              <span id="errorMensajeNombre" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
+                *Este dato es obligatorio
+              </span>
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="profesional" class="form-label">PROFESIONAL</label>
+              <select id = "profesional" class="form-select" aria-label="Default select example">
+                <option selected>[SELECCIONAR]</option>
+                <option value="1">JUAN PEREZ</option>
+                <option value="2">CHIQUI TAPIA</option>
+                <option value="3">CINDY GORY</option>
+              </select>
+              <span id="errorMensajeDni" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
+                *Este dato es obligatorio
+              </span>
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="obraSocial" class="form-label">OBRA SOCIAL</label>
+              <select id = "obraSocial" class="form-select" aria-label="Default select example">
+                <option selected>[SELECCIONAR]</option>
+                <option value="1">SANCOR</option>
+                <option value="2">SWISH MEDICAL</option>
+                <option value="2">NO TIENE</option>
+                
+              </select>
+              <span id="errorMensajeMp" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
+                *Este dato es obligatorio
+              </span>
+            </div>
+
+            
+          </div>
+
+          <div class="row">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupFile01">Subir Archivo</label>
+              <input type="file" class="form-control" id="inputGroupFile01">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-group">
+              <span class="input-group-text">OBSERVACIONES</span>
+                  <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+          </div>
+
+            
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="ValidarInputs()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts {
+  <script src="~/js/estudios-1.0.0.js"></script>
+}

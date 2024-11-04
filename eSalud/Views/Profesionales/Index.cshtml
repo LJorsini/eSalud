@@ -1,17 +1,17 @@
 @{
-  ViewData["Title"] = "Pacientes";
+  ViewData["Title"] = "Medicos";
 }
 
-<h1>Pacientes</h1>
+<h1>Profesionales</h1>
 
 <div class="card">
 
   <div class="card-header row">
     <div class="col-6 d-flex align-items-center">
-      <input type="search" class="form-control rounded" placeholder="Pacientes" aria-label="Search"
+      <input type="search" class="form-control rounded" placeholder="Profesionales" aria-label="Search"
         aria-describedby="search-addon" />
       <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"
-        data-bs-toggle="modal" data-bs-target="#modalPacientes"><i class="material-icons">add</i></button>
+        data-bs-toggle="modal" data-bs-target="#modalProfesionales"><i class="material-icons">add</i></button>
       <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"><i
           class="material-icons">print</i></button>
     </div>
@@ -24,40 +24,40 @@
         <tr>
           <th scope="col">Nombre</th>
           <th scope="col">DNI</th>
-          <th scope="col">EDAD</th>
+          <th scope="col">MP</th>
           <th scope="col">DIRECCION</th>
           <th scope="col">LOCALIDAD</th>
           <th scope="col">TELEFONO</th>
-          <th scope="col">OBRA SOCIAL</th>
+          <th scope="col">ESPECIALIDAD</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th>JUAN PEREZ</th>
           <td>123456</td>
-          <td>35</td>
+          <td>C205</td>
           <td>LUCHINELLI 120</td>
           <td>SUARDI</td>
           <td>3562541255</td>
-          <td>SANCOR</td>
+          <td>CLINICA</td>
         </tr>
         <tr>
           <th>CHIQUI TAPIA</th>
           <td>11458789</td>
-          <td>52</td>
+          <td>10254</td>
           <td>AV SAN MARTIN 123</td>
           <td>SUARDI</td>
           <td>3564789511</td>
-          <td>SWISH MEDICAL</td>
+          <td>CLINICO</td>
         </tr>
         <tr>
           <th>CINDY GORI</th>
           <td>37225488</td>
-          <td>31</td>
+          <td>1520</td>
           <td>MORENO 720</td>
           <td>SUARDI</td>
           <td>3562504123</td>
-          <td>SANCOR</td>
+          <td>TRAUMATOLOGIA</td>
         </tr>
       </tbody>
     </table>
@@ -65,11 +65,11 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modalPacientes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalProfesionales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVO PACIENTE</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVO PROFESIONAL</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -93,9 +93,9 @@
             </div>
 
             <div class="mb-3 col-4">
-              <label for="edad" class="form-label">EDAD</label>
-              <input type="number" class="form-control" id="edad" placeholder="EDAD">
-              <span id="errorMensajeEdad" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
+              <label for="mp" class="form-label">MP</label>
+              <input type="text" class="form-control" id="mp" placeholder="MATRICULA PROFESIONAL">
+              <span id="errorMensajeMp" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
                 *Este dato es obligatorio
               </span>
             </div>
@@ -139,14 +139,14 @@
 
           <div class="row">
             <div class="mb-3 col-6">
-              <label for="obraSocial" class="form-label">OBRA SOCIAL</label>
+              <label for="obraSocial" class="form-label">ESPECIALIDAD</label>
               <select id = "obraSocial" class="form-select" aria-label="Default select example">
                 <option selected>[SELECCIONAR]</option>
-                <option value="1">SANCOR 1000</option>
-                <option value="2">OSPIL</option>
-                <option value="3">SWISH MEDICAL</option>
+                <option value="1">CLINICO</option>
+                <option value="2">TRAUMATOLOGIA</option>
+
               </select>
-              <span id="errorMensajeObraSocial" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
+              <span id="errorMensajeEspecialidad" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
                 *Este dato es obligatorio
               </span>
             </div>
