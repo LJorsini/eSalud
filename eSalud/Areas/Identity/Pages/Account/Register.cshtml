@@ -27,7 +27,11 @@
                 <label asp-for="Input.ConfirmPassword">Confirme su contraseña</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="textos-validacion"></span>
             </div>
+            <div>
+                <a href="/Identity/Account/Login?ReturnUrl=%2F">LOGIN</a>
+            </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">REGISTRAR</button>
+            
         </form>
     </div>
 </div>

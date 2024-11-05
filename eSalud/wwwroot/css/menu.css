@@ -92,6 +92,10 @@ a.sidebar-link {
     border-left: 3px solid transparent;
 }
 
+.salir {
+    color: #FFF;
+}
+
 .sidebar-link i {
     font-size: 1.1rem;
     margin-right: .75rem;

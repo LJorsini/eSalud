@@ -1,0 +1,67 @@
+@{
+  ViewData["Title"] = "Estadisticas";
+}
+
+<h1>Estadisticas</h1>
+
+
+@* <div class="card" style="width: 18rem;">
+
+<div>
+<canvas id="myChart"></canvas>
+</div>
+<div class="card-body">
+<h5 class="card-title">PACIENTES POR GENERO</h5>
+<a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div> *@
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="col-12">
+          <div class="card shadow-sm">
+            <canvas id="myChart" class="card-img-top" width="100%" height="225"></canvas>
+            <div class="card-body">
+              <p class="card-text">Pacientes atendidos por género.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalGrafico">VER</button>
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+     </div>
+  </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalGrafico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <canvas id="myChart1"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+@section Scripts {
+  <script src="~/js/estadisticas-1.0.0.js"></script>
+}
