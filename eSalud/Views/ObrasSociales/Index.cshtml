@@ -12,14 +12,14 @@
         aria-describedby="search-addon" />
       <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"
         data-bs-toggle="modal" data-bs-target="#modalObrasSociales"><i class="material-icons">add</i></button>
-      <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"><i
+      <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center" onclick="Imprimir()"><i
           class="material-icons">print</i></button>
     </div>
 
   </div>
 
   <div class="card-body">
-    <table class="table">
+    <table id="tablaObrasSociales" class="table">
       <thead>
         <tr>
           <th scope="col">OBRA SOCIAL</th>
@@ -57,23 +57,23 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form class="needs-validation" novalidate>
           <div class="row">
 
             <div class="mb-3 col-4">
               <label for="obraSocial" class="form-label">OBRA SOCIAL</label>
-              <input type="text" class="form-control" id="obraSocial" placeholder="OBRA SOCIAL" oninput="textoMayuscula(this)">
-              <span id="errorMensajeObraSocial" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
-                *Este dato es obligatorio
-              </span>
+              <input type="text" class="form-control" id="obraSocial" placeholder="OBRA SOCIAL" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">
+                *Debe ingresar una obra social.
+              </div>
             </div>
 
             <div class="mb-3 col-4">
               <label for="plan" class="form-label">PLAN</label>
-              <input type="text" class="form-control" id="plan" placeholder="PLAN" oninput="textoMayuscula(this)">
-              <span id="errorMensajePlan" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
-                *Este dato es obligatorio
-              </span>
+              <input type="text" class="form-control" id="plan" placeholder="PLAN" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">
+                *Debe ingresar una plan.
+              </div>
             </div>
 
 
@@ -85,12 +85,11 @@
 
           
 
-            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary" onclick="GuardarObraSocial()">Guardar</button>
+            </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" onclick="ValidarInputs()">Guardar</button>
       </div>
     </div>
   </div>
@@ -98,4 +97,86 @@
 
 @section Scripts {
   <script src="~/js/obrasSociales-1.0.0.js"></script>
+
+  <script>
+    function Imprimir() {
+    var doc = new jsPDF();
+    //var doc = new jsPDF('l', 'mm', [297, 210]);
+
+    var totalPagesExp = "{total_pages_count_string}";
+    var pageContent = function (data) {
+
+      var pageHeight = doc.internal.pageSize.height || doc.internal.pageSize.getHeight();
+      var pageWidth = doc.internal.pageSize.width || doc.internal.pageSize.getWidth();
+
+      // FOOTER
+      var str = "Pagina " + data.pageCount;
+      // Total page number plugin only available in jspdf v1.0+
+      if (typeof doc.putTotalPages == 'function') {
+        str = str + " de " + totalPagesExp;
+      }
+
+      doc.setLineWidth(8);
+      doc.setDrawColor(238, 238, 238);
+      doc.line(14, pageHeight - 11, 196, pageHeight - 11);
+
+      doc.setFontSize(10);
+
+
+      doc.setFontStyle('bold');
+
+      doc.text(str, 17, pageHeight - 10);
+
+    };
+
+
+    var elem = document.getElementById("tablaObrasSociales");
+    var res = doc.autoTableHtmlToJson(elem);
+    doc.autoTable(res.columns, res.data,
+      {
+        addPageContent: pageContent,
+        theme: 'grid',
+        //styles: { fillColor: [255, 0, 0] }, //COLOR ENCABEZADO
+        columnStyles: {
+          0: {
+            halign: 'center',
+            cellWidth: 'auto',
+            fontSize: 7,
+            //fillColor: [0, 255, 0] 
+          },
+          1: { fontSize: 7, overflow: 'hidden' },
+          5: {
+            halign: 'center',
+            cellWidth: 'auto',
+            fontSize: 7,
+            //fillColor: [0, 255, 0] 
+          },
+          6: {
+            halign: 'center',
+            cellWidth: 'auto',
+            fontSize: 7,
+            //fillColor: [0, 255, 0] 
+          },
+
+        }, // Celdas de la primera columna centradas y verdes
+        margin: { top: 10 },
+      }
+    );
+
+    // ESTO SE LLAMA ANTES DE ABRIR EL PDF PARA QUE MUESTRE EN EL PDF EL NRO TOTAL DE PAGINAS. ACA CALCULA EL TOTAL DE PAGINAS.
+    if (typeof doc.putTotalPages === 'function') {
+      doc.putTotalPages(totalPagesExp);
+    }
+
+    //doc.save('InformeSistema.pdf')
+
+    var string = doc.output('datauristring');
+    var iframe = "<iframe width='100%' height='100%' src='" + string + "'></iframe>"
+
+    var x = window.open();
+    x.document.open();
+    x.document.write(iframe);
+    x.document.close();
+  }
+  </script>
 }

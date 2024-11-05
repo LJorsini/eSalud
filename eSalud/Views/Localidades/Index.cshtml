@@ -11,7 +11,7 @@
       <input type="search" class="form-control rounded" placeholder="Localidades" aria-label="Search"
         aria-describedby="search-addon" />
       <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"
-        data-bs-toggle="modal" data-bs-target="#modalObrasLocalidades"><i class="material-icons">add</i></button>
+        data-bs-toggle="modal" data-bs-target="#modalLocalidades"><i class="material-icons">add</i></button>
       <button type="button" class="btn btn-primary ms-4 d-flex align-items-center justify-content-center"><i
           class="material-icons">print</i></button>
     </div>
@@ -49,53 +49,66 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modalObrasSociales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalLocalidades" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVA ONBRA SOCIAL</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVA LOCALIDAD</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form class="needs-validation" novalidate >
           <div class="row">
 
             <div class="mb-3 col-4">
-              <label for="obraSocial" class="form-label">OBRA SOCIAL</label>
-              <input type="text" class="form-control" id="obraSocial" placeholder="OBRA SOCIAL" oninput="textoMayuscula(this)">
-              <span id="errorMensajeObraSocial" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
-                *Este dato es obligatorio
-              </span>
+              <label for="localidad" class="form-label">LOCALIDAD</label>
+              <input type="text" class="form-control" id="localidad" placeholder="LOCALIDAD" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">
+                *Debe ingresar la localidad.
+              </div>
             </div>
 
             <div class="mb-3 col-4">
-              <label for="plan" class="form-label">PLAN</label>
-              <input type="text" class="form-control" id="plan" placeholder="PLAN" oninput="textoMayuscula(this)">
-              <span id="errorMensajePlan" style="color:red; display:none; font-size: 15px; padding-left: 4px;">
-                *Este dato es obligatorio
-              </span>
+              <label for="cp" class="form-label">CP</label>
+              <input type="text" class="form-control" id="cp" placeholder="CP" oninput="textoMayuscula(this)" required>
+
+              <div class="invalid-feedback">
+                *Debe ingresar el codigo postal.
+              </div>
+
+              
             </div>
 
+            <div class="mb-3 col-4">
+              <label for="provincia" class="form-label">PROVINCIA</label>
+              <select id = "provincia" class="form-select" aria-label="Default select example" required>
+                <option selected disabled value="">[SELECCIONAR]</option>
+                <option value="1">SANTA FE</option>
+                <option value="2">CORDOBA</option>
+                
+              </select>
+              
+              <div class="invalid-feedback">
+                *Debe ingresar la provincia.
+              </div>
 
-
-            
-
-            
+              
+            </div>
           </div>
-
-          
-
-            
+            <div class="modal-footer d-flex justify-content-end">
+                <button type = "button" class="btn btn-primary" data-bs-dismiss="modal">CANCELAR</button>
+                <button type = "submit" class="btn btn-primary" onclick="GuardarLocalidad()" >GUARDAR</button>
+            </div>
         </form>
       </div>
-      <div class="modal-footer">
+      @* <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" onclick="ValidarInputs()">Guardar</button>
-      </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div> *@
     </div>
   </div>
 </div>
 
 @section Scripts {
-  <script src="~/js/obrasSociales-1.0.0.js"></script>
+  <script src="~/js/localidades-1.0.0.js"></script>
 }
