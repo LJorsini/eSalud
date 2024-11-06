@@ -26,13 +26,13 @@ function textoMayuscula(texto) {
 //sweat alert
 
 function GuardarPaciente () {
-  Swal.fire({
+  /* Swal.fire({
     position: "center",
     icon: "success",
     title: "Paciente guardado con exito",
     showConfirmButton: false,
     timer: 1500
-  });
+  }); */
 }
   
 
