@@ -29,6 +29,7 @@
           <th scope="col">LOCALIDAD</th>
           <th scope="col">TELEFONO</th>
           <th scope="col">ESPECIALIDAD</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -40,6 +41,7 @@
           <td>SUARDI</td>
           <td>3562541255</td>
           <td>CLINICA</td>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarProfesionales"><i class="fa-regular fa-pen-to-square"></i></button></th>
         </tr>
         <tr>
           <th>CHIQUI TAPIA</th>
@@ -49,6 +51,7 @@
           <td>SUARDI</td>
           <td>3564789511</td>
           <td>CLINICO</td>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarProfesionales"><i class="fa-regular fa-pen-to-square"></i></button></th>
         </tr>
         <tr>
           <th>CINDY GORI</th>
@@ -58,6 +61,7 @@
           <td>SUARDI</td>
           <td>3562504123</td>
           <td>TRAUMATOLOGIA</td>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarProfesionales"><i class="fa-regular fa-pen-to-square"></i></button></th>
         </tr>
       </tbody>
     </table>
@@ -70,6 +74,77 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVO PROFESIONAL</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><b>Los campos con un * son obligatorios.</b></p>
+        <form id="formProfesional" class="needs-validation" novalidate>
+          <div class="row">
+            <div class="mb-3 col-4">
+              <label for="nombreCompleto" class="form-label fw-bold">NOMBRE Y APELLIDO *</label>
+              <input type="text" class="form-control" id="nombreCompleto" placeholder="NOMBRE Y APELLIDO" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">*Debe ingresar el nombre y apellido.</div>
+            </div>
+            <div class="mb-3 col-4">
+              <label for="dni" class="form-label fw-bold">DNI *</label>
+              <input type="number" class="form-control" id="dni" placeholder="DNI" required>
+              <div class="invalid-feedback">*Debe ingresar el DNI.</div>
+            </div>
+            <div class="mb-3 col-4">
+              <label for="mp" class="form-label fw-bold">MP *</label>
+              <input type="text" class="form-control" id="mp" placeholder="MATRICULA PROFESIONAL" required>
+              <div class="invalid-feedback">*Debe ingresar la matrícula.</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3 col-4">
+              <label for="direccion" class="form-label fw-bold">DIRECCIÓN *</label>
+              <input type="text" class="form-control" id="direccion" placeholder="DIRECCIÓN" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">*Debe ingresar la dirección.</div>
+            </div>
+            <div class="mb-3 col-4">
+              <label for="localidad" class="form-label fw-bold">LOCALIDAD *</label>
+              <select id="localidad" class="form-select" required>
+                <option selected disabled value="">[SELECCIONAR]</option>
+                <option value="1">SUARDI</option>
+                <option value="2">MORTEROS</option>
+                <option value="3">SAN GUILLERMO</option>
+              </select>
+              <div class="invalid-feedback">*Debe ingresar la localidad.</div>
+            </div>
+            <div class="mb-3 col-4">
+              <label for="telefono" class="form-label fw-bold">TELÉFONO *</label>
+              <input type="text" class="form-control" id="telefono" placeholder="TELÉFONO" required>
+              <div class="invalid-feedback">*Debe ingresar el número de teléfono.</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3 col-6">
+              <label for="especialidad" class="form-label fw-bold">ESPECIALIDAD *</label>
+              <select id="especialidad" class="form-select" required>
+                <option selected disabled value="">[SELECCIONAR]</option>
+                <option value="1">CLÍNICO</option>
+                <option value="2">TRAUMATOLOGÍA</option>
+              </select>
+              <div class="invalid-feedback">*Debe ingresar la especialidad.</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="GuardarProfesional()">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditarProfesionales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR PROFESIONAL</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

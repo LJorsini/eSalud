@@ -1,3 +1,5 @@
+
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
   'use strict'
@@ -22,14 +24,29 @@ function textoMayuscula(texto) {
     texto.value = texto.value.toUpperCase();
   }
 
-  function GuardarEstudio () {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Estudio cargado con exito",
-      showConfirmButton: false,
-      timer: 1500
-    });
+  function GuardarEstudio() {
+    const form = document.getElementById('formEstudio');
+    
+    // Verificar cada campo requerido
+    if (!form.checkValidity()) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Por favor complete todos los campos obligatorios.',
+      });
+    } else {
+      Swal.fire({
+        icon: 'success',
+        title: '¡Guardado!',
+        text: 'La información se guardó correctamente.',
+      }).then(() => {
+        // Aquí puedes enviar el formulario si todo está bien
+        form.submit();
+      });
+    }
+
+    // Para evitar que se envíe el formulario automáticamente si no está completo
+    form.classList.add('was-validated');
   }
 
   

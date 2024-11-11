@@ -31,17 +31,17 @@
         <tr>
           <th>SANCOR</th>
           <td>PLAN 1000</td>
-          <th></th>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarObrasSociales"><i class="fa-regular fa-pen-to-square"></i></button></th>
         </tr>
         <tr>
           <th>SWISH MEDICAL</th>
           <td>PLAN JOVEN</td>
-          <th></th>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarObrasSociales"><i class="fa-regular fa-pen-to-square"></i></button></th>
         </tr>
         <tr>
           <th>OSPIL</th>
           <td>PLAN BASICO</td>
-          <th></th>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarObrasSociales"><i class="fa-regular fa-pen-to-square"></i></button></th>
         </tr>
       </tbody>
     </table>
@@ -54,6 +54,54 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVA ONBRA SOCIAL</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><b>Los datos marcados con * son obligatorios.</b></p>
+        <form class="needs-validation" novalidate>
+          <div class="row">
+
+            <div class="mb-3 col-4">
+              <label for="obraSocial" class="form-label fw-bold">OBRA SOCIAL *</label>
+              <input type="text" class="form-control" id="obraSocial" placeholder="OBRA SOCIAL" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">
+                *Debe ingresar una obra social.
+              </div>
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="plan" class="form-label fw-bold">PLAN *</label>
+              <input type="text" class="form-control" id="plan" placeholder="PLAN" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">
+                *Debe ingresar una plan.
+              </div>
+            </div>
+
+
+
+            
+
+            
+          </div>
+
+          
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary" onclick="GuardarObraSocial()">Guardar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditarObrasSociales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR ONBRA SOCIAL</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

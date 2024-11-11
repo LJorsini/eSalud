@@ -29,6 +29,8 @@
           <th scope="col">LOCALIDAD</th>
           <th scope="col">TELEFONO</th>
           <th scope="col">OBRA SOCIAL</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -40,6 +42,8 @@
           <td>SUARDI</td>
           <td>3562541255</td>
           <td>SANCOR</td>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarPacientes"><i class="fa-regular fa-pen-to-square"></i></button></th>
+          
         </tr>
         <tr>
           <th>CHIQUI TAPIA</th>
@@ -49,6 +53,8 @@
           <td>SUARDI</td>
           <td>3564789511</td>
           <td>SWISH MEDICAL</td>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarPacientes"><i class="fa-regular fa-pen-to-square"></i></button></th>
+          
         </tr>
         <tr>
           <th>PEDRO PEDRO</th>
@@ -58,6 +64,8 @@
           <td>SUARDI</td>
           <td>3562504123</td>
           <td>SANCOR</td>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarPacientes"><i class="fa-regular fa-pen-to-square"></i></button></th>
+          
         </tr>
       </tbody>
     </table>
@@ -70,6 +78,98 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVO PACIENTE</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><b>Los campos con un * son obligatorios.</b></p>
+        <form id="formPaciente" class="needs-validation" novalidate>
+          <div class="row">
+            <div class="mb-3 col-4">
+              <label for="nombreCompleto" class="form-label fw-bold">NOMBRE Y APELLIDO *</label>
+              <input type="text" class="form-control" id="nombreCompleto" placeholder="NOMBRE Y APELLIDO" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">
+                *Debe ingresar el nombre.
+              </div>
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="dni" class="form-label fw-bold">DNI *</label>
+              <input type="number" class="form-control" id="dni" placeholder="DNI" required>
+              <div class="invalid-feedback">
+                *Debe ingresar el DNI.
+              </div>
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="edad" class="form-label fw-bold">EDAD *</label>
+              <input type="number" class="form-control" id="edad" placeholder="EDAD" required>
+              <div class="invalid-feedback">
+                *Debe ingresar la edad.
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="mb-3 col-4">
+              <label for="direccion" class="form-label fw-bold">DIRECCION *</label>
+              <input type="text" class="form-control" id="direccion" placeholder="DIRECCION" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">
+                *Debe ingresar la direccion.
+              </div>
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="localidad" class="form-label fw-bold">LOCALIDAD *</label>
+              <select id="localidad" class="form-select" required>
+                <option selected disabled value="">[SELECCIONAR]</option>
+                <option value="1">SUARDI</option>
+                <option value="2">MORTEROS</option>
+                <option value="3">SAN GUILLERMO</option>
+              </select>
+              <div class="invalid-feedback">
+                *Debe ingresar la localidad.
+              </div>
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="telefono" class="form-label fw-bold">TELEFONO *</label>
+              <input type="text" class="form-control" id="telefono" placeholder="TE" required>
+              <div class="invalid-feedback">
+                *Debe ingresar telefono.
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="mb-3 col-6">
+              <label for="obraSocial" class="form-label fw-bold">OBRA SOCIAL *</label>
+              <select id="obraSocial" class="form-select" required>
+                <option selected disabled value="">[SELECCIONAR]</option>
+                <option value="1">SANCOR 1000</option>
+                <option value="2">OSPIL</option>
+                <option value="3">SWISH MEDICAL</option>
+              </select>
+              <div class="invalid-feedback">
+                *Debe ingresar la obra social.
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="GuardarPaciente()">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalEditarPacientes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR PACIENTE</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

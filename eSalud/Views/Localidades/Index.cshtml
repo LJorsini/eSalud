@@ -25,6 +25,7 @@
           <th scope="col">LOCALIDAD</th>
           <th scope="col">CP</th>
           <th>PROVINCIA</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -32,16 +33,19 @@
           <th>SUARDI</th>
           <td>2349</td>
           <td>SANTA FE</td>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarLocalidades"><i class="fa-regular fa-pen-to-square"></i></button></th>
         </tr>
         <tr>
           <th>SAN GUILLERMO</th>
           <td>2450</td>
           <td>SANTA FE</td>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarLocalidades"><i class="fa-regular fa-pen-to-square"></i></button></th>
         </tr>
         <tr>
           <th>MONTE OSCURIDAD</th>
           <td>2540</td>
           <td>SANTA FE</td>
+          <th><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditarLocalidades"><i class="fa-regular fa-pen-to-square"></i></button></th>
         </tr>
       </tbody>
     </table>
@@ -57,11 +61,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <p><b>Los campos marcados con * son obligatorios.</b></p>
         <form class="needs-validation" novalidate >
           <div class="row">
 
             <div class="mb-3 col-4">
-              <label for="localidad" class="form-label">LOCALIDAD</label>
+              <label for="localidad" class="form-label fw-bold">LOCALIDAD *</label>
               <input type="text" class="form-control" id="localidad" placeholder="LOCALIDAD" oninput="textoMayuscula(this)" required>
               <div class="invalid-feedback">
                 *Debe ingresar la localidad.
@@ -69,7 +74,7 @@
             </div>
 
             <div class="mb-3 col-4">
-              <label for="cp" class="form-label">CP</label>
+              <label for="cp" class="form-label fw-bold">CP *</label>
               <input type="text" class="form-control" id="cp" placeholder="CP" oninput="textoMayuscula(this)" required>
 
               <div class="invalid-feedback">
@@ -80,7 +85,69 @@
             </div>
 
             <div class="mb-3 col-4">
-              <label for="provincia" class="form-label">PROVINCIA</label>
+              <label for="provincia" class="form-label fw-bold">PROVINCIA *</label>
+              <select id = "provincia" class="form-select" aria-label="Default select example" required>
+                <option selected disabled value="">[SELECCIONAR]</option>
+                <option value="1">SANTA FE</option>
+                <option value="2">CORDOBA</option>
+                
+              </select>
+              
+              <div class="invalid-feedback">
+                *Debe ingresar la provincia.
+              </div>
+
+              
+            </div>
+          </div>
+            <div class="modal-footer d-flex justify-content-end">
+                <button type = "button" class="btn btn-primary" data-bs-dismiss="modal">CANCELAR</button>
+                <button type = "submit" class="btn btn-primary" onclick="GuardarLocalidad()" >GUARDAR</button>
+            </div>
+        </form>
+      </div>
+      @* <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div> *@
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditarLocalidades" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR LOCALIDAD</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><b>Los campos marcados con * son obligatorios.</b></p>
+        <form class="needs-validation" novalidate >
+          <div class="row">
+
+            <div class="mb-3 col-4">
+              <label for="localidad" class="form-label fw-bold">LOCALIDAD *</label>
+              <input type="text" class="form-control" id="localidad" placeholder="LOCALIDAD" oninput="textoMayuscula(this)" required>
+              <div class="invalid-feedback">
+                *Debe ingresar la localidad.
+              </div>
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="cp" class="form-label fw-bold">CP *</label>
+              <input type="text" class="form-control" id="cp" placeholder="CP" oninput="textoMayuscula(this)" required>
+
+              <div class="invalid-feedback">
+                *Debe ingresar el codigo postal.
+              </div>
+
+              
+            </div>
+
+            <div class="mb-3 col-4">
+              <label for="provincia" class="form-label fw-bold">PROVINCIA *</label>
               <select id = "provincia" class="form-select" aria-label="Default select example" required>
                 <option selected disabled value="">[SELECCIONAR]</option>
                 <option value="1">SANTA FE</option>
